@@ -1,5 +1,5 @@
 import React from 'react';
-import NextImage from 'next/image';
+import NextImage  from 'next/image';
 import moment from 'moment';
 import Link from 'next/link';
 
@@ -19,15 +19,17 @@ const PostCard = ({ post }) => {
           src={post.featuredImage.url}
         />
       </div>
-      <h1 className="transition duration-400 text-center mb-8 cursor-pointer hover:text-pink-600 text-3xl font-semibold">
+      <h1 className="transition duration-400 text-center mb-8 cursor-pointer hover:text-yellow-400 text-3xl font-semibold">
         <Link href={`/post/${post.slug}`}>{post.title}</Link>
       </h1>
       <div className="block lg:flex text-center items-center justify-center mb-8 w-full">
         <div className="flex items-center justify-center mb-4 lg:mb-0 w-full lg:w-auto mr-8">
-          <img
+          <NextImage
+            unoptimized
+            loader={graphCMSImageLoader}
             alt={post.author.name}
-            height="30px"
-            width="30px"
+            height={30}
+            width={30}
             className="align-middle rounded-full"
             src={post.author.photo.url}
           />
@@ -36,7 +38,7 @@ const PostCard = ({ post }) => {
         <div className="font-medium text-gray-700">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 inline mr-2 text-pink-500"
+            className="h-6 w-6 inline mr-2 text-yellow-400"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -56,7 +58,7 @@ const PostCard = ({ post }) => {
       </p>
       <div className="text-center">
         <Link href={`/post/${post.slug}`}>
-          <span className="transition duration-400 transform hover:-translate-y-1 inline-block bg-pink-600  text-lg rounded-full text-white font-semibold px-8 py-3 cursor-pointer">
+          <span className="transition duration-400 transform hover:bg-black hover:text-yellow-400 hover:-translate-y-1 inline-block bg-yellow-400  text-lg rounded-full text-gray font-semibold px-8 py-3 cursor-pointer">
             Continue Reading
           </span>
         </Link>
